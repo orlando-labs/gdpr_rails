@@ -108,6 +108,17 @@ config = PolicyManager::Config.setup do |c|
 end
 ```
 
+### Rails 7 notice
+Since the model constants are not available in the initializers of Rails 7 applications the policy manager config setup can be placed somewhere in the initializers in the `after_initialize` block.
+
+```ruby
+Rails.configuration.after_initialize do
+  PolicyManager::Config.setup do |c|
+    ...
+  end
+end
+```
+
 In order for this engine to work you must supply some rules according to your needs, in order to be in comply with the GDPR you will need 3 rules at least. A cookie consent, a Privacy& TOS and an Age  confirmation (+16).
 So, let's start by doing that:
 
