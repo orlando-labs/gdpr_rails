@@ -51,7 +51,7 @@ module PolicyManager
 
       respond_to do |format|
         format.html{
-          if @user_term.errors.any?
+          if @user_term && @user_term.errors.any?
             redirect_to root_url , notice: "hey there are some errors! #{@user_term.errors.full_messages.join()}"
           else
             redirect_to root_url
@@ -71,7 +71,7 @@ module PolicyManager
 
       respond_to do |format|
         format.html{
-          if @user_term.errors.any?
+          if @user_term && @user_term.errors.any?
             redirect_to root_url , notice: "hey there are some errors! #{@user_term.errors.full_messages.join()}"
           else
             redirect_to root_url
