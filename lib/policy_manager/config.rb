@@ -55,7 +55,7 @@ module PolicyManager
     end
 
     def self.user_language(user)
-      @@user_language_method.call(user) rescue :en
+      @@user_language_method&.call(user) || :en
     end
 
     def self.rules
